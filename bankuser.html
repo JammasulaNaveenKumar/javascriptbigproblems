@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bankusers</title>
+</head>
+<body>
+    <script>
+        
+        let user=[{name:"naveen",age:25}];
+        function userManagement(){
+             let  addelement=true;
+            this.addUser=(data)=>{
+                filterUser=user.filter((ele)=>{
+                    if(ele.name==data.name && ele.age==data.age){
+                        console.log("person already exist");
+                       addelement=false 
+                    }
+                })
+                if(addelement==true){
+                    
+                    user.push(data)
+                }
+             };
+             this.edit=(data)=>{
+                let filterUser=user.filter((ele)=>{
+                    if(ele.name==data.name){
+                        ele.name="orange";
+                        ele.age=35;
+                    }
+                    return ele
+                })
+                user=filterUser
+                console.log(user)
+
+             }
+             this.delete=(data)=>{
+                let filterUser=user.filter((ele)=>{
+                    if(ele.name!=data.name){
+                        return ele
+                    }
+                   
+                })
+                user=filterUser
+                console.log(user)
+             }
+        }
+        let management=new userManagement();
+        management.addUser({name:"Naveen",age:28});
+        management.addUser({name:"nagu",age:40});
+        management.addUser({name:"nagu",age:40});
+        management.edit({name:"naveen"});
+        management.delete({name:"nagu"})
+        
+       
+
+
+     </script>
+</body>
+</html>

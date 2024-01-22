@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .table-class{
+        
+        width: 500px;
+        margin: 20px;
+        font-size: 30px;
+    }
+    th,td{
+        border-width: 2px;
+        border-color: rgb(182, 7, 7);
+        border-style: solid;
+        height: 50px;
+        width: 50px;
+        
+    }
+    .button{
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        padding: 0;
+    }
+    .clear{
+        width: 50px;
+    }
+    button{
+        width: 100%;
+        height: 100%;
+        background-color: orangered;
+    }
+    .input{
+        width: 100%;
+        height: 100%;
+        background-color: aqua;
+        color: black;
+    }
+</style>
+<body>
+    <table class="table-class" >
+        <tr>
+            <th colspan="4" style="text-align: center; border:none"> calculater</th>
+        </tr>
+        <tr >
+        
+            <td colspan="3"><input class="input" type="text" id="result" /></td>
+            <td class="clear"><button class="button" onclick="clearText();">clear</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="display('7')">7</button></td>
+            <td><button onclick="display('8')">8</button></td>
+            <td><button onclick="display('9')">9</button></td>
+            <td><button onclick="display('/')">/</button></td>
+
+        </tr>
+        <tr>
+            <td><button onclick="display('4')">4</button></td>
+            <td><button onclick="display('5')">5</button></td>
+            <td><button onclick="display('6')">6</button></td>
+            <td><button onclick="display('+')">+</button></td>
+
+        </tr>
+        <tr>
+            <td><button onclick="display('1')">1</button></td>
+            <td><button onclick="display('2')">2</button></td>
+            <td><button onclick="display('3')">3</button></td>
+            <td><button onclick="display('-')">-</button></td>
+
+        </tr>
+        <tr>
+            <td><button onclick="display('0')">0</button></td>
+            <td><button onclick="display('.')">.</button></td>
+            <td><button onclick="display('*clearclear')">*</button></td>
+            <td><button onclick="finalResult();">=</button></td>
+
+        </tr>
+          
+
+
+
+    </table>
+    <script>
+         
+        function display(n){
+            document.getElementById("result").value+=n;
+        }
+        function clearText(){
+            document.getElementById("result").value="";
+        }
+         function finalResult(){
+            let inputValue=document.getElementById("result").value;
+            let finalResult=eval(inputValue);
+            document.getElementById("result").value=finalResult;
+
+        }
+    </script>
+    
+</body>
+</html>

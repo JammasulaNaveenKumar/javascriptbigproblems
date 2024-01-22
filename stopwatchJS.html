@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="head"><h1>welcom</h1></div>
+        <button onclick="stopwatch.start()"> start</button>
+        <button onclick="stopwatch.stop()">stop</button>
+        <button onclick="stopwatch.sendDuration()">duration</button>
+        <button onclick="stopwatch.reset()">reset</button>
+</div>
+    <script>
+        function Stopwatch(){
+            let startTime=null;
+            let endTime=null;
+            let running=false;
+            let duration=0;
+            this.start=function(){
+                if(running!=false){
+                    document.getElementById("head").innerText="already started";
+                }
+                else{
+                    running=true;
+                    startTime=new Date();
+                    document.getElementById("head").innerHTML=startTime;
+                }
+            };
+            this.stop=function(){
+                if(running==null){
+                    console.log("stopwatch is not started");
+                }
+                else{
+                    running=false;
+                    endTime=new Date();
+                    duration=(endTime.getTime()- startTime.getTime())/1000
+                    document.getElementById("head").innerHTML=endTime;
+                }
+            };
+            this.sendDuration=function(){
+                //return duration;
+                document.getElementById("head").innerHTML=duration;
+            };
+            this.reset=function(){
+            let startTime=null;
+            let endTime=null;
+            let running=false;
+            let duration=0
+
+            }
+
+        }
+        stopwatch=new Stopwatch();
+    </script>
+    
+</body>
+</html>

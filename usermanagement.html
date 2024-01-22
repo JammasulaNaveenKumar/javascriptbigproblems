@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" placeholder="start table" id="start"/>
+        <input type="text" placeholder="end table" id="end"/>
+        <button onclick="table();">ADD</button>
+    </div>
+    <div id="showtable" ></div>
+    <script>
+        let deletetable=[];
+        let start="";
+        let end="";
+        function deleteTab(event){
+          let delId=  event.target.id;
+          console.log(delId);
+          deletetable.push(parseInt(delId));
+          render(start,end)
+}
+        
+        function table(){
+            start= document.getElementById("start").value;
+            end= document.getElementById("end").value;
+            document.getElementById("start").value="";
+            document.getElementById("end").value="";
+
+            render(start,end);
+        }
+
+        function render(start,end){
+            document.getElementById("showtable").innerHTML="";
+            for (let i=parseInt(start);i<=parseInt(end);i++){
+
+                if(deletetable.indexOf(i)>=0) continue;
+
+                let divElement=document.createElement("div")
+                divElement.style="display: inline-block"
+                for(let j=1;j<=10;j++){
+                    divElement.innerHTML+=`<div>${i}*${j}=${i*j}</div>`
+                }
+                let deleteBtn=document.createElement("button")
+                deleteBtn.innerText="Delete";
+                deleteBtn.id=i;
+                deleteBtn.onclick=deleteTab;
+                divElement.appendChild(deleteBtn)
+            document.getElementById("showtable").appendChild(divElement)
+            }
+        }
+      
+    </script>
+</body>
+</html>
